@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int v = scanner.nextInt(), t = scanner.nextInt();
+        System.out.println(MKAD(v, t));
+    }
+
+    static int MKAD(int v, int t) {
+        return (109 + v * t % 109) & 109;
+    }
+
