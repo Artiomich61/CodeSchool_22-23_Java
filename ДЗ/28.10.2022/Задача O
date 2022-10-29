@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int a = scanner.nextInt(), b = scanner.nextInt(), n = scanner.nextInt();
+        printPrice(a, b, n);
+    }
+
+    static void printPrice(int a, int b, int n){
+        a *= n;
+        b *= n;
+        a += b / 100;
+        b %= 100;
+        System.out.println(a + " " + b);
+    }
+
+}
