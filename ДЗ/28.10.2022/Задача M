@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int a = scanner.nextInt(), b = scanner.nextInt();
+        printChanged(a, b);
+    }
+
+    static void printChanged(int a, int b) {
+        a ^= b;
+        b ^= a;
+        a ^= b;
+        System.out.println(a + " " + b);
+    }
+}
