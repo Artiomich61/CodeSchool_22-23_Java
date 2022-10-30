@@ -1,15 +1,16 @@
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        short a = scanner.nextShort(), b = scanner.nextShort();
+        int a = scanner.nextInt(), b = scanner.nextInt();
         System.out.println(takeDays(a, b));
     }
 
-    static short takeDays(short a, short b){
-        return (short)((b - 1 + a) / a);
+    static int takeDays(int a, int b){
+        return (b - 1 + a) / a;
     }
 
 }
