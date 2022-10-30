@@ -1,3 +1,5 @@
+
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Main {
@@ -9,6 +11,10 @@ public class Main {
     }
 
     static void printTime2(int n){
-        System.out.println(n / 3600 % 24 + ":" + n % 3600 / 60 + ":" + n % 60);
+        DecimalFormat dF = new DecimalFormat("00");
+        byte hours = (byte)(n / 3600 % 24);
+        byte minutes = (byte)(n % 3600 / 60);
+        byte seconds = (byte)(n % 60);
+        System.out.println(dF.format(hours) + ":" + dF.format(minutes) + ":" + dF.format(seconds));
     }
 }
