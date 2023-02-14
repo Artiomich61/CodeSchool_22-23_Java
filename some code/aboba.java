@@ -31,6 +31,25 @@ public class _4 {
         
         return arr;
     }
+    
+    static String fin(String fileName){
+        String str = "";
+        FileInputStream fileInputStream;
+        BufferedInputStream bufferedInputStream;
+        BufferedReader bufferedReader;
+        try {
+            fileInputStream = new FileInputStream(fileName);
+            bufferedInputStream = new BufferedInputStream(fileInputStream, 20);
+            bufferedReader = new BufferedReader(new InputStreamReader(bufferedInputStream));
+            str = bufferedReader.readLine();
+            bufferedReader.close();
+            bufferedInputStream.close();
+            fileInputStream.close();
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+        return str;
+    }
 
     static void fout(String str){
         FileOutputStream fileOutputStream = null;
