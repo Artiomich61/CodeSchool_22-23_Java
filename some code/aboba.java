@@ -31,7 +31,15 @@ public class _4 {
         return arr;
     }
     static Object[] cycleMove(Object[] arr, int stages){
-        
+        Object temp;
+        for (int i = 0; i < stages; i++) {
+            temp = arr[0];
+            for (int j = arr.length; j > 1; j--) {
+                arr[j % arr.length] = arr[(j - 1) % arr.length];
+            }
+            arr[1] = temp;
+        }
+
         return arr;
     }
     
