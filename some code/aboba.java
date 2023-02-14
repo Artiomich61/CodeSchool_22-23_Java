@@ -3,6 +3,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class _4 {
+    
+    static line = 1; //для fin2
+    
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -48,6 +51,29 @@ public class _4 {
         }catch (IOException e){
             throw new RuntimeException(e);
         }
+        return str;
+    }
+    
+    static String fin2(String fileName){ //fin в несколько строчек
+        String str = "";
+        FileInputStream fileInputStream;
+        BufferedInputStream bufferedInputStream;
+        BufferedReader bufferedReader;
+        try {
+            fileInputStream = new FileInputStream(fileName);
+            bufferedInputStream = new BufferedInputStream(fileInputStream, 20);
+            bufferedReader = new BufferedReader(new InputStreamReader(bufferedInputStream));
+            for (int i = 1; i < line; i++) {
+                bufferedReader.readLine();
+            }
+            str = bufferedReader.readLine();
+            bufferedReader.close();
+            bufferedInputStream.close();
+            fileInputStream.close();
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+        line++;
         return str;
     }
 
