@@ -84,6 +84,20 @@ public class _4 {
         line++;
         return str;
     }
+    
+        static String fin3(String fileName){ // another one fin
+        String input = "";
+        BufferedReader bufferedReader;
+        try{
+            bufferedReader = new BufferedReader(new InputStreamReader(new BufferedInputStream(new FileInputStream(fileName))));
+            while(bufferedReader.ready()){
+                input += bufferedReader.readLine() + "\n";
+            }
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+        return input;
+    }
 
     static void fout(String str){
         FileOutputStream fileOutputStream = null;
