@@ -1,0 +1,50 @@
+import java.io.*;
+
+public class _2 {
+    static int line = 1;
+    public static void main(String[] args) {
+        String output = "";
+        int n = 0;
+        int a = Integer.parseInt(fin("input.txt"));
+        int b = Integer.parseInt(fin("input.txt"));
+        while (Math.sqrt(a) > n){
+            n++;
+        }
+        for (int i = n; i*i <= b; i++) {
+            output += i*i + " ";
+        }
+        fout(output);
+    }
+    static String fin(String fileName){
+        String str = "";
+        FileInputStream fileInputStream;
+        BufferedInputStream bufferedInputStream;
+        BufferedReader bufferedReader;
+        try {
+            fileInputStream = new FileInputStream(fileName);
+            bufferedInputStream = new BufferedInputStream(fileInputStream, 20);
+            bufferedReader = new BufferedReader(new InputStreamReader(bufferedInputStream));
+            for (int i = 1; i < line; i++) {
+                bufferedReader.readLine();
+            }
+            str = bufferedReader.readLine();
+            bufferedReader.close();
+            bufferedInputStream.close();
+            fileInputStream.close();
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+        line++;
+        return str;
+    }
+    static void fout(String str){
+        FileOutputStream fileOutputStream = null;
+        try{
+            fileOutputStream = new FileOutputStream("output.txt");
+            fileOutputStream.write(str.getBytes());
+            fileOutputStream.close();
+        }catch (IOException e){
+            System.err.println(e);
+        }
+    }
+}
